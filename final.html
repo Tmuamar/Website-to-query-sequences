@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/tmuamar1/final/style.css">
+    <title>Protein Sequence Similarity Tool</title>
+</head>
+<body>
+    <form action="/tmuamar1/final/final.cgi" method="post" enctype="multipart/form-data" autocomplete="off">
+        <label for="query_sequence">Query Protein Sequence:</label>
+        <br>
+        <textarea id="query_sequence" name="query_sequence" rows="10" cols="50"></textarea>
+        <br>
+        <label for="file">Upload fasta file:</label>
+        <input type="file" name="query_file" id="query_file">
+        <br>
+        <input type="submit" value="Search">
+    </form>
+    {% if matches %}
+    <h2>Search Results:</h2>
+    <table>
+        <thead>
+        <script src="/tmuamar1/final/interact.js"></script>
+            <tr>
+                <th>Query ID</th>
+                <th>Sequence ID</th>
+                <th class="sortable" id="percent-identity"><div> Percent Identity <div class="arrow"></div></div> </th>
+                <th class="sortable" id="alignment-length"><div> Alignment Length <div class="arrow"></div></div> </th>
+                <th class="sortable" id="mismatches"><div>Mismatches <div class="arrow"></div></div> </th>
+                <th class="sortable" id="gap-opens"><div>Gap Opens <div class="arrow"></div></div> </th>
+                <th class="sortable" id="e-value"><div>E-value <div class="arrow"></div></div> </th>
+                <th class="sortable" id="bit-score"><div>Bit Score <div class="arrow"></div></div> </th>
+                <th>Aligned Query Sequence</th>
+                <th>Aligned Subject Sequence</th>
+           </tr>
+       </thead>
+       <tbody>
+       {% for match in matches %}
+           <tr>
+               <td>{{ match.query_id }}</td>
+               <td>{{ match.subject_id }}</td>
+               <td>{{ match.percent_identity }}</td>
+               <td>{{ match.alignment_length }}</td>
+               <td>{{ match.mismatches }}</td>
+               <td>{{ match.gap_opens }}</td>
+               <td>{{ match.e_value }}</td>
+               <td>{{ match.bit_score }}</td>
+               <td class="matchqseq">{{ match.qseq }}</td>
+               <td class="matchsseq">{{ match.sseq }}</td>
+         </tr>
+     {% endfor %}
+    </tbody>
+</table>
+{% endif %}
+</body>
+</html>
