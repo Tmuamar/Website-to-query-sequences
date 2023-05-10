@@ -38,7 +38,7 @@
        {% for match in matches %}
            <tr>
                <td>{{ match.query_id }}</td>
-               <td>{{ match.subject_id }}</td>
+               <td class="link" onclick="goToLink('https://www.ebi.ac.uk/interpro/protein/UniProt/{{ match.subject_id }}')">{{ match.subject_id }}</td>
                <td>{{ match.percent_identity }}</td>
                <td>{{ match.alignment_length }}</td>
                <td>{{ match.mismatches }}</td>
