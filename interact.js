@@ -1,5 +1,7 @@
 #!/usr/bin/env node
-
+function goToLink(link) {
+    window.open(link, '_blank');
+}
 function comparePercentIdentity(a, b) {
   var aPercent = parseFloat($(a).find('td:eq(2)').text())
   var bPercent = parseFloat($(b).find('td:eq(2)').text())
