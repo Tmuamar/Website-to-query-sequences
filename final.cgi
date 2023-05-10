@@ -30,7 +30,7 @@ results = cursor.fetchall()
 # Write the sequences to a temporary file
 with open("sequences.fasta", "w") as f:
     for i, row in enumerate(results):
-        seq_id=row[0][:10]
+        seq_id=row[0][3:9]
         sequence = row[1]
         f.write(">{}\n{}\n".format(seq_id, sequence))
 
