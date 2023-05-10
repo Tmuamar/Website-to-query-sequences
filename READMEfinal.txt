@@ -16,7 +16,9 @@ the mySQL database created with the uniprotKB data.
 
 * REQUIREMENTS *
 
-Storage is minimal depending on database used for reference sequences.
+Storage is depending on database used for reference sequences.
+with uniprotkb database when searching consumes 5000mib memeory
+used while idle requires 949mib
 
 * DETAILED USAGE *
 
