@@ -8,12 +8,9 @@
 <body>
     <form action="/tmuamar1/final/final.cgi" method="post" enctype="multipart/form-data" autocomplete="off">
         <label for="query_sequence">Query Protein Sequence:</label>
-        <br>
         <textarea id="query_sequence" name="query_sequence" rows="10" cols="50"></textarea>
-        <br>
         <label for="file">Upload fasta file:</label>
         <input type="file" name="query_file" id="query_file">
-        <br>
         <input type="submit" value="Search">
     </form>
     {% if matches %}
